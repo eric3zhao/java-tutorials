@@ -12,7 +12,8 @@ class HelloWorldApp {
 ### 源代码注释
 
 下面这段代码中加粗的部分就是`Comments`(注释)
-<div><pre>
+
+<pre>
 <b>/**
  * The HelloWorldApp class implements an application that
  * simply prints "Hello World!" to standard output.
@@ -22,7 +23,8 @@ class HelloWorldApp {
         System.out.println("Hello World!"); <b>// Display the string.</b>
     }
 }
-</pre></div>
+</pre>
+
 编译器会忽略注释的内容但是对其他开发者来说是很有用的，Java支持一下三种注释：
 
 * `/* text */`，编译器会忽略`/*`到`*/`之间所有的内容
@@ -32,7 +34,8 @@ class HelloWorldApp {
 ### 类定义
 
 下面这段代码中加粗就是类定义代码块的开头：
-<div><pre>
+
+<pre>
 /**
  * The HelloWorldApp class implements an application that
  * simply displays "Hello World!" to the standard output.
@@ -42,7 +45,7 @@ class HelloWorldApp {
         System.out.println("Hello World!"); // Display the string.
     }
 <b>}</b>
-</pre></div>
+</pre>
 如上所示，最基础的类定义就是：
 
 ```java
@@ -56,7 +59,8 @@ class name {
 ### main	函数
 
 下面这段代码中加粗就是`main`函数的开头：
-<div class="codeblock"><pre>
+
+<pre>
 /**
  * The HelloWorldApp class implements an application that
  * simply displays "Hello World!" to the standard output.
@@ -66,7 +70,8 @@ class HelloWorldApp {
         System.out.println("Hello World!"); //Display the string.
     <b>}</b>
 }
-</pre></div>
+</pre>
+
 在Java中，所有的应用必须包含一个`main`函数：
 
 ```java
