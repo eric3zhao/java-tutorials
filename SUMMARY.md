@@ -10,3 +10,10 @@
 * [The Hello World Application](basics/getting-started/The Hello World Application.md)
 
 * [A Closer Look at the Hello World Application](basics/getting-started/A Closer Look at the Hello World Application.md)
+
+##	 Learning the Java Language
+
+* [Annotations](basics/learn-language/Annotations.md)
+	* [Annotations Basics](basics/learn-language/Annotations Basics.md)
+	* [Declaring an Annotation Type](basics/learn-language/Declaring an Annotation Type.md)
+	* [Predefined Annotation Types](basics/learn-language/Predefined Annotation Types.md)
