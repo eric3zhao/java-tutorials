@@ -17,3 +17,5 @@
 	* [Annotations Basics](basics/learn-language/Annotations Basics.md)
 	* [Declaring an Annotation Type](basics/learn-language/Declaring an Annotation Type.md)
 	* [Predefined Annotation Types](basics/learn-language/Predefined Annotation Types.md)
+	* [Repeating Annotations](basics/learn-language/Repeating Annotations.md)
+	* [Type Annotations and Pluggable Type Systems](basics/learn-language/Type Annotations and Pluggable Type Systems.md)
