@@ -13,9 +13,17 @@
 
 ##	 Learning the Java Language
 
+* [Language Basics](basics/learn-language/Language Basics.md)
+	* [Java Language Keywords](basics/learn-language/Java Language Keywords.md)
+
 * [Annotations](basics/learn-language/Annotations.md)
 	* [Annotations Basics](basics/learn-language/Annotations Basics.md)
 	* [Declaring an Annotation Type](basics/learn-language/Declaring an Annotation Type.md)
 	* [Predefined Annotation Types](basics/learn-language/Predefined Annotation Types.md)
 	* [Repeating Annotations](basics/learn-language/Repeating Annotations.md)
 	* [Type Annotations and Pluggable Type Systems](basics/learn-language/Type Annotations and Pluggable Type Systems.md)
+
+* [Generics](basics/learn-language/Generics.md)
+	* [Why Use Generics?](basics/learn-language/Why Use Generics?.md)
+	* [Generic Types](basics/learn-language/Generic Types.md)
+	* [Raw Types](basics/learn-language/Raw Types.md)
