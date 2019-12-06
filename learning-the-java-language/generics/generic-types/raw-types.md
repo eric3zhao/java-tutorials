@@ -1,3 +1,5 @@
+# Raw Types
+
 `raw type`（原生类型）是不带任何类型传参的泛型类或者接口。例如，下面这个`Box`泛型类：
 
 ```java
@@ -27,3 +29,4 @@ Box rawBox = new Box();
 Box<String> stringBox = new Box<>();
 Box rawBox = stringBox;               // OK
 ```
+

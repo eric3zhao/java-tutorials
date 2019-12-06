@@ -1,12 +1,14 @@
+# Predefined Annotation Types
+
 在`Java SE API`已经预定义了一些注解类型。其中有些注解被Java编译器所使用，有些作用于别的注解。
 
-### Annotation Types Used by the Java Language
+## Annotation Types Used by the Java Language
 
 `java.lang`中预定义的注解有`@Deprecated`，`@Override`和`@SuppressWarnings`。
 
 **@Deprecated**
 
-[@Deprecated](https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html)注解用来标识元素已经`deprecated`（废弃）不能继续使用。当程序中用到带有`deprecated`注解的类，函数或者字段时编译器将生成一个警告。当一个元素被弃用，应该在文档注释中使用`Javadoc`的`@deprecated`tag，如下面的例子所示。在`Javadoc`注释和注解中使用`at`符号(@) 并不是巧合：它们在概念上是相关的。注意，`Javadoc`的tag首字母是小写`d`而注释的首字母是大写`D`。
+[@Deprecated](https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html)注解用来标识元素已经`deprecated`（废弃）不能继续使用。当程序中用到带有`deprecated`注解的类，函数或者字段时编译器将生成一个警告。当一个元素被弃用，应该在文档注释中使用`Javadoc`的`@deprecated`tag，如下面的例子所示。在`Javadoc`注释和注解中使用`at`符号\(@\) 并不是巧合：它们在概念上是相关的。注意，`Javadoc`的tag首字母是小写`d`而注释的首字母是大写`D`。
 
 ```java
 // Javadoc comment follows
@@ -20,7 +22,7 @@ static void deprecatedMethod() { }
 
 **@Override**
 
-[@Override](https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html)注解通知编译器当前的元素重写了父类(`superclass`)中声明的元素。重写将在后面的章节中讲解。
+[@Override](https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html)注解通知编译器当前的元素重写了父类\(`superclass`\)中声明的元素。重写将在后面的章节中讲解。
 
 ```java
 // mark method as a superclass method
@@ -54,13 +56,13 @@ void useDeprecatedMethod() {
 
 **@SafeVarargs**
 
-[@SafeVarargs](https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html)注解使用在函数或者构造方法时，断定代码在操作它的可变长变量参数(`varargs`)时不会发生潜在的不安全操作。当这个注解被使用时，可变长参数的非检查警告将被忽略。
+[@SafeVarargs](https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html)注解使用在函数或者构造方法时，断定代码在操作它的可变长变量参数\(`varargs`\)时不会发生潜在的不安全操作。当这个注解被使用时，可变长参数的非检查警告将被忽略。
 
 **@FunctionalInterface**
 
 [@FunctionalInterface](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html)注解，Java SE 8中引入，在`Java Language Specification`中表示声明的类型是一个方法接口（`functional interface`）
 
-### Annotations That Apply to Other Annotations
+## Annotations That Apply to Other Annotations
 
 作用于其他注解的注解被称为`meta-annotations`（元注解），在`java.lang.annotation`中定义了一些元注解类型。
 
@@ -80,10 +82,10 @@ void useDeprecatedMethod() {
 
 [@Target](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html)注解标记其他的注解只能用在限定的Java元素上。target注解指定以下元素类型中的一个作为它的值：
 
-* ElementType.ANNOTATION_TYPE 可以作用在注解类型
+* ElementType.ANNOTATION\_TYPE 可以作用在注解类型
 * ElementType.CONSTRUCTOR 可以作用在构造函数
 * ElementType.FIELD 可以作用在属性或者property
-* ElementType.LOCAL_VARIABLE 可以作用在局部变量
+* ElementType.LOCAL\_VARIABLE 可以作用在局部变量
 * ElementType.METHOD 可以作用在函数及表的注解
 * ElementType.PACKAGE 可以作用在包的声明
 * ElementType.PARAMETER 可以作用在函数的参数
@@ -96,3 +98,4 @@ void useDeprecatedMethod() {
 **@Repeatable**
 
 [@Repeatable](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html)注解，Java SE 8中引入，表示被标记的注解可以多次用于同一个声明或者类型。后面我们会介绍详细内容。
+

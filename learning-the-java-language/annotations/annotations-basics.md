@@ -1,4 +1,6 @@
-### The Format of an Annotation
+# Annotations Basics
+
+## The Format of an Annotation
 
 最简单的注解如下所示：
 
@@ -13,7 +15,7 @@
 void mySuperMethod() { ... }
 ```
 
-注解可以包含`elements`(元素)，元素可以`named`或者`unnamed`，这些元素可以被赋值：
+注解可以包含`elements`\(元素\)，元素可以`named`或者`unnamed`，这些元素可以被赋值：
 
 ```java
 @Author(
@@ -43,7 +45,7 @@ void myMethod() { ... }
 class MyClass { ... }
 ```
 
-如果多个注解类型是一样的，则被称为重复注解(`repeating annotation`)：
+如果多个注解类型是一样的，则被称为重复注解\(`repeating annotation`\)：
 
 ```java
 @Author(name = "Jane Doe")
@@ -55,7 +57,7 @@ class MyClass { ... }
 
 注解的类型可以是`Java SE API`的`java.lang or java.lang.annotation`包中定义的类型中其中的一个，比如前面提到的`Override`和`SuppressWarnings`。当然你可以定义自己的注解类型，比如前面提到的`Author`和`Ebook`就是自定义注解。
 
-### Where Annotations Can Be Used
+## Where Annotations Can Be Used
 
 可以在声明中使用注解：声明类，字段，函数，或者别的程序元素。在声明场景下时候时，默认约定每个声明都独占一行。
 
@@ -63,28 +65,29 @@ class MyClass { ... }
 
 * **Class instance creation expression**：
 
-	```java
-	new @Interned MyObject();
-	```
-	
+  ```java
+    new @Interned MyObject();
+  ```
+
 * **Type cast**：
- 
-	```java
-	myString = (@NonNull String) str;
-	```
-	
+
+  ```java
+    myString = (@NonNull String) str;
+  ```
+
 * **implements clause**：
 
-	```java
-	class UnmodifiableList<T> implements
+  ```java
+    class UnmodifiableList<T> implements
         @Readonly List<@Readonly T> { ... }
-	```
+  ```
 
 * **Thrown exception declaration**：
-	
-	```java
-	void monitorTemperature() throws
+
+  ```java
+    void monitorTemperature() throws
         @Critical TemperatureException { ... }
-	```
+  ```
 
 这种类型的注解被称为`type annotation`，后面的章节将会提到。
+
