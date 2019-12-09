@@ -1,5 +1,3 @@
-# Generic Types
-
 `generic types`泛型类型指的是通过类型进行参数化的通用类或者接口。下面通过修改`Box`类来掩饰这一概念。
 
 ## A Simple Box Class
@@ -88,13 +86,13 @@ Box<Integer> integerBox = new Box<Integer>();
 
 ## The Diamond
 
-在`Java SE 7`和以后版本，只要编译器能从上下文中确定或者推断出类型参数，就可以使用一组空的类型参数\(&lt;&gt;\)来替换掉用泛型类的构造函数所需的类型参数。这对尖括号，&lt;&gt;，被称为`the diamond`\(砖石运算符\)。例如，你可以用下面这条语句创建一个`Box<Integer>`实例：
+在`Java SE 7`和以后版本，只要编译器能从上下文中确定或者推断出类型参数，就可以使用一组空的类型参数`<>`来替换掉用泛型类的构造函数所需的类型参数。这对尖括号`<>`，被称为`the diamond`\(菱形运算符\)。例如，你可以用下面这条语句创建一个`Box<Integer>`实例：
 
 ```java
 Box<Integer> integerBox = new Box<>();
 ```
 
-更多的砖石元算符信息请参考[Type Inference](https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html)
+更多的菱形元算符信息请参考[Type Inference](https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html)
 
 ## Multiple Type Parameters
 
@@ -130,7 +128,7 @@ Pair<String, String>  p2 = new OrderedPair<String, String>("hello", "world");
 
 代码`new OrderedPair<String, Integer>`将`K`实例化为`String`，将`V`实例化为`Integer`。所以`OrderedPair`构造函数的参数类型分别是是`String`和`Integer`。根据[autoboxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)，传入`String`和`int`也是有效的。
 
-根据上面提到的钻石运算符，由于Java编译器可以通过`OrderedPair<String, Integer>`的声明推断出`K`和`V`的类型，所以上面的语句可以通过钻石运算符缩短成：
+根据上面提到的菱形运算符，由于Java编译器可以通过`OrderedPair<String, Integer>`的声明推断出`K`和`V`的类型，所以上面的语句可以通过菱形运算符缩短成：
 
 ```java
 OrderedPair<String, Integer> p1 = new OrderedPair<>("Even", 8);

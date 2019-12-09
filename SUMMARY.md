@@ -13,6 +13,10 @@
 
 ## Learning the Java Language
 
+* [Object-Oriented Programming Concepts](learning-the-java-language/OOP-concepts/README.md)
+  * [What Is an Object?](learning-the-java-language/OOP-concepts/what-is-an-object.md)
+  * [What Is a Class?](learning-the-java-language/OOP-concepts/what-is-a-class.md)
+  * [What Is Inheritance?](learning-the-java-language/OOP-concepts/what-is-Inheritance.md)
 * [Language Basics](learning-the-java-language/language-basics/README.md)
   * [Java Language Keywords](learning-the-java-language/language-basics/java-language-keywords.md)
 * [Annotations](learning-the-java-language/annotations/README.md)
@@ -25,4 +29,21 @@
   * [Why Use Generics?](learning-the-java-language/generics/why-use-generics.md)
   * [Generic Types](learning-the-java-language/generics/generic-types/README.md)
     * [Raw Types](learning-the-java-language/generics/generic-types/raw-types.md)
-
+  * [Generic Methods](learning-the-java-language/generics/generic-methods.md)
+  * [Bounded Type Parameters](learning-the-java-language/generics/bounded-type-parameters/README.md)
+    * [Generic Methods and Bounded Type Parameters](learning-the-java-language/generics/bounded-type-parameters/generic-methods-and-bounded-type-parameters.md)
+  * [Generics, Inheritance, and Subtypes](learning-the-java-language/generics/generics-inheritance-and-subtypes.md)
+  * [Type Inference](learning-the-java-language/generics/type-inference.md)
+  * [Wildcards](learning-the-java-language/generics/wildcards/README.md)
+    * [Upper Bounded Wildcards](learning-the-java-language/generics/wildcards/upper-bounded-wildcards.md)
+    * [Unbounded Wildcards](learning-the-java-language/generics/wildcards/unbounded-wildcards.md)
+    * [Lower Bounded Wildcards](learning-the-java-language/generics/wildcards/lower-bounded-wildcards.md)
+    * [Wildcards and Subtyping](learning-the-java-language/generics/wildcards/wildcards-and-subtyping.md)
+    * [Wildcard Capture and Helper Methods](learning-the-java-language/generics/wildcards/wildcard-capture-and-helper-methods.md)
+    * [Guidelines for Wildcard Use](learning-the-java-language/generics/wildcards/guidelines-for-wildcard-use.md)
+  * [Type Erasure](learning-the-java-language/generics/type-erasure/README.md)
+    * [Erasure of Generic Types](learning-the-java-language/generics/type-erasure/erasure-of-generic-types.md)
+    * [Erasure of Generic Methods](learning-the-java-language/generics/type-erasure/erasure-of-generic-methods.md)
+    * [Effects of Type Erasure and Bridge Methods](learning-the-java-language/generics/type-erasure/effects-of-type-erasure-and-bridge-methods.md)
+    * [Non-Reifiable Types](learning-the-java-language/generics/type-erasure/non-reifiable-types.md)
+  * [Restrictions on Generics](learning-the-java-language/generics/restrictions-on-generics.md)
