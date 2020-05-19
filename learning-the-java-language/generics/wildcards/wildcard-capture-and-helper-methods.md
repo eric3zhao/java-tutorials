@@ -1,3 +1,5 @@
+# Wildcard Capture and Helper Methods
+
 有些情况下，编译器会推断统配的类型。比如，一个列表可能定义为`List<?>`，但是当计算表达式时，编译器通过代码推断出特定的类型。这个场景被称为`wildcard capture`（通配符捕获）
 
 在大多数情况下，我们无需担心通配符捕获，除非我们看到一条错误消息，其中包含`capture of`
@@ -15,11 +17,11 @@ public class WildcardError {
 }
 ```
 
-在上面的代码中，编译器将输入参数`i`处理为`Object`类型。当函数`foo`调用[ List.set(int, E)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-)时。编译器无法确认插入列表对象的类型，因此生成了一个错误。当发生这种类型的错误时，通常意味着编译器认为我们正在将错误的类型分配给变量。Java语言中加入泛型为的是————在编译时确保类型安全。
+在上面的代码中，编译器将输入参数`i`处理为`Object`类型。当函数`foo`调用[ List.set\(int, E\)](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#set-int-E-)时。编译器无法确认插入列表对象的类型，因此生成了一个错误。当发生这种类型的错误时，通常意味着编译器认为我们正在将错误的类型分配给变量。Java语言中加入泛型为的是————在编译时确保类型安全。
 
 当使用Oracle's JDK 7`javac`实现来编译上面`WildcardError`的例子会产生如下报错：
 
-```
+```text
 WildcardError.java:6: error: method set in interface List<E> cannot be applied to given types;
     i.set(0, i.get(0));
      ^
@@ -66,7 +68,7 @@ public class WildcardErrorBad {
       l1.set(0, l2.get(0)); // expected a CAP#1 extends Number,
                             // got a CAP#2 extends Number;
                             // same bound, but different types
-      l2.set(0, temp);	    // expected a CAP#1 extends Number,
+      l2.set(0, temp);        // expected a CAP#1 extends Number,
                             // got a Number
     }
 }
@@ -84,7 +86,7 @@ swapFirst(li, ld);
 
 使用Oracle's JDK `javac`编译器编译此段代码会产生如下报错：
 
-```
+```text
 WildcardErrorBad.java:7: error: method set in interface List<E> cannot be applied to given types;
       l1.set(0, l2.get(0)); // expected a CAP#1 extends Number,
         ^
@@ -119,3 +121,4 @@ WildcardErrorBad.java:15: error: method set in interface List<E> cannot be appli
 ```
 
 没有辅助函数能修复这个问题，因为代码从根本上就是错误的。
+

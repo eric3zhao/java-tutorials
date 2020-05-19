@@ -1,4 +1,6 @@
-`Type inference`(类型推断)是Java编译器查看每个方法调用和相应的声明以确定适用于函数调用的类型传参的能力。推理算法确定传参的类型，以及确定函数赋值或返回的类型（如果有）。最后，推理算法尝试找到与所有传参一起使用的最具体的类型。
+# Type Inference
+
+`Type inference`\(类型推断\)是Java编译器查看每个方法调用和相应的声明以确定适用于函数调用的类型传参的能力。推理算法确定传参的类型，以及确定函数赋值或返回的类型（如果有）。最后，推理算法尝试找到与所有传参一起使用的最具体的类型。
 
 为了说明上面所说的，下面这个例子中，推断确定函数`pick`的第二个传参是`Serializable`类型的：
 
@@ -7,9 +9,9 @@ static <T> T pick(T a1, T a2) { return a2; }
 Serializable s = pick("d", new ArrayList<String>());
 ```
 
-### Type Inference and Generic Methods
+## Type Inference and Generic Methods
 
-[Generic Methods]()向我们介绍了类型推断，使得你可以想调用普通函数一样调用泛型函数，而不需要在尖括号中指定类型。下面这个[BoxDemo](https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/java/generics/examples/BoxDemo.java)例子中用到了[Box](https://docs.oracle.com/javase/tutorial/java/generics/examples/Box.java)类：
+[Generic Methods](type-inference.md)向我们介绍了类型推断，使得你可以想调用普通函数一样调用泛型函数，而不需要在尖括号中指定类型。下面这个[BoxDemo](https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/java/generics/examples/BoxDemo.java)例子中用到了[Box](https://docs.oracle.com/javase/tutorial/java/generics/examples/Box.java)类：
 
 ```java
 public class BoxDemo {
@@ -43,7 +45,7 @@ public class BoxDemo {
 
 例子的输入如下：
 
-```
+```text
 Box #0 contains [10]
 Box #1 contains [20]
 Box #2 contains [30]
@@ -61,9 +63,9 @@ BoxDemo.<Integer>addBox(Integer.valueOf(10), listOfIntegerBoxes);
 BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
 ```
 
-### Type Inference and Instantiation of Generic Classes
+## Type Inference and Instantiation of Generic Classes
 
-我们可以在调用泛型类的构造函数时将所需的类型传参替换成空的类型参数集合（<>）编译器也会通过上下文推断出类型传参。一对尖括号我们称之为[the diamond]()（菱形符）.
+我们可以在调用泛型类的构造函数时将所需的类型传参替换成空的类型参数集合（&lt;&gt;）编译器也会通过上下文推断出类型传参。一对尖括号我们称之为[the diamond](type-inference.md)（菱形符）.
 
 以下面的变量声明为例：
 
@@ -71,7 +73,7 @@ BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
 Map<String, List<String>> myMap = new HashMap<String, List<String>>();
 ```
 
-我们可以将传入构造函数的参数类型替换成空的集合（<>）：
+我们可以将传入构造函数的参数类型替换成空的集合（&lt;&gt;）：
 
 ```java
 Map<String, List<String>> myMap = new HashMap<>();
@@ -83,7 +85,7 @@ Map<String, List<String>> myMap = new HashMap<>();
 Map<String, List<String>> myMap = new HashMap(); // unchecked conversion warning
 ```
 
-### Type Inference and Generic Constructors of Generic and Non-Generic Classes
+## Type Inference and Generic Constructors of Generic and Non-Generic Classes
 
 需要注意的是在泛型和非泛型类中构造函数都可以是泛型的（也就是声明自己的形式类型参数），以下面的代码为例：
 
@@ -113,9 +115,9 @@ MyClass<Integer> myObject = new MyClass<>("");
 
 > 需要注意的是推理算法仅使用调用参数，目标类型，以及明显的预期返回类型来推断类型。推断算法不会使用代码中接下来的一些结果。
 
-### Target Types
+## Target Types
 
-Java编译器利用目标类型来推断泛型函数调用的类型参数。表达式的`target type`(目标类型)是Java编译器期望的数据类型，具体取决于表达式出现的位置。参考函数`Collections.emptyList`,该函数声明如下：
+Java编译器利用目标类型来推断泛型函数调用的类型参数。表达式的`target type`\(目标类型\)是Java编译器期望的数据类型，具体取决于表达式出现的位置。参考函数`Collections.emptyList`,该函数声明如下：
 
 ```java
 static <T> List<T> emptyList();
@@ -149,7 +151,7 @@ processStringList(Collections.emptyList());
 
 Java SE 7的编译器会生成如下报错信息：
 
-```
+```text
 List<Object> cannot be converted to List<String>
 ```
 
@@ -165,4 +167,5 @@ processStringList(Collections.<String>emptyList());
 processStringList(Collections.emptyList());
 ```
 
-查看[Lambda Expressions]()中的[Target Typing]()了解更多。
+查看[Lambda Expressions](type-inference.md)中的[Target Typing](type-inference.md)了解更多。
+

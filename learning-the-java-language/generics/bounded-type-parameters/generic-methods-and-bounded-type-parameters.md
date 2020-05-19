@@ -1,3 +1,5 @@
+# Generic Methods and Bounded Type Parameters
+
 有界的类型参数是实现通用算法的关键。设想下面这个函数用来计算一个数组`array T[]`中元素的值比某个特定元素`elem`大的数量。
 
 ```java
@@ -29,3 +31,4 @@ public static <T extends Comparable<T>> int countGreaterThan(T[] anArray, T elem
     return count;
 }
 ```
+

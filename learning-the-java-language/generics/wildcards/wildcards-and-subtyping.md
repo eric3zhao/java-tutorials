@@ -1,4 +1,6 @@
-在[Generics, Inheritance, and Subtypes]()已经讨论过，泛型类或者接口之所以是不相关仅因为它们的类型之间存在关系。然而，你可以用通配符去创建泛型类或者接口之间的关系。
+# Wildcards and Subtyping
+
+在[Generics, Inheritance, and Subtypes](wildcards-and-subtyping.md)已经讨论过，泛型类或者接口之所以是不相关仅因为它们的类型之间存在关系。然而，你可以用通配符去创建泛型类或者接口之间的关系。
 
 以下面两个常规（非泛型）类为例：
 
@@ -23,7 +25,7 @@ List<A> la = lb;   // compile-time error
 
 既然`Integer`是`Number`的子类型，那么`List <Integer>`和`List <Number>`之间的关系是什么呢？
 
-![The common parent is List<?>.](https://docs.oracle.com/javase/tutorial/figures/java/generics-listParent.gif)
+![The common parent is List&amp;lt;?&amp;gt;.](https://docs.oracle.com/javase/tutorial/figures/java/generics-listParent.gif)
 
 虽然`Integer`是`Number`的子类型，但是`List<Integer>`不是`List<Number>`的子类型，实际上，这两个类型并没有关联。`List<Number>`和`List<Integer>`的共同父类是`List<?>`
 
@@ -39,3 +41,4 @@ List<? extends Number>  numList = intList;  // OK. List<? extends Integer> is a 
 ![A hierarchy of several generic List class declarations.](https://docs.oracle.com/javase/tutorial/figures/java/generics-wildcardSubtyping.gif)
 
 [Guidelines for Wildcard Use](https://docs.oracle.com/javase/tutorial/java/generics/wildcardGuidelines.html)部分提供有更多关使用上界和下界通配符的后果的信息
+

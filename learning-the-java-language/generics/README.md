@@ -5,3 +5,4 @@
 幸运的是有些bug是容易发现的。比如，编译时bug就能被很早发现，你可以使用编译器的报错信息来确定问题所在并立即修复它。但是运行时bug会造成更大的麻烦，它们不会立即显现出来，当它们发生时，代码的位置可能和实际问题的原因相去甚远。
 
 `Generics`（泛型）通过在编译时让你的bug更容易被检测而使得你的代码更加稳定，通过本章的介绍，你可以继续看`Gilad Bracha`的[教程](https://docs.oracle.com/javase/tutorial/extra/generics/index.html)
+

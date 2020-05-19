@@ -13,10 +13,11 @@
 
 ## Learning the Java Language
 
-* [Object-Oriented Programming Concepts](learning-the-java-language/OOP-concepts/README.md)
-  * [What Is an Object?](learning-the-java-language/OOP-concepts/what-is-an-object.md)
-  * [What Is a Class?](learning-the-java-language/OOP-concepts/what-is-a-class.md)
-  * [What Is Inheritance?](learning-the-java-language/OOP-concepts/what-is-Inheritance.md)
+* [Object-Oriented Programming Concepts](learning-the-java-language/oop-concepts/README.md)
+  * [What Is an Object?](learning-the-java-language/oop-concepts/what-is-an-object.md)
+  * [What Is a Class?](learning-the-java-language/oop-concepts/what-is-a-class.md)
+  * [What Is Inheritance?](learning-the-java-language/oop-concepts/what-is-inheritance.md)
+  * [What Is an Interface?](learning-the-java-language/oop-concepts/what-is-an-interface.md)
 * [Language Basics](learning-the-java-language/language-basics/README.md)
   * [Java Language Keywords](learning-the-java-language/language-basics/java-language-keywords.md)
 * [Annotations](learning-the-java-language/annotations/README.md)
@@ -47,3 +48,4 @@
     * [Effects of Type Erasure and Bridge Methods](learning-the-java-language/generics/type-erasure/effects-of-type-erasure-and-bridge-methods.md)
     * [Non-Reifiable Types](learning-the-java-language/generics/type-erasure/non-reifiable-types.md)
   * [Restrictions on Generics](learning-the-java-language/generics/restrictions-on-generics.md)
+

@@ -1,6 +1,8 @@
+# Bounded Type Parameters
+
 有时我们想要限制参数化类型中所使用的类型参数。比如，一个操作数字的函数可能只接受`Number`类及其子类的实例。这就是我们所说的`Bounded Type Parameters`（有界类型参数）。
 
-在定义有界类型参数时，先列出类型参数名，后面紧跟`extends`关键字，最后是参数的`upper bound`(上界)，例子中我们用的是`Number`。请注意，在这语境中，`extends`被用在一个普通场景表示对类的`extends`（扩展）或者对接口的`implements`（实现）。
+在定义有界类型参数时，先列出类型参数名，后面紧跟`extends`关键字，最后是参数的`upper bound`\(上界\)，例子中我们用的是`Number`。请注意，在这语境中，`extends`被用在一个普通场景表示对类的`extends`（扩展）或者对接口的`implements`（实现）。
 
 ```java
 public class Box<T> {
@@ -57,9 +59,9 @@ public class NaturalNumber<T extends Integer> {
 
 `isEven`函数中通过`n`调用`Integer`类中定义的`intValue`函数。
 
-### Multiple Bounds
+## Multiple Bounds
 
-上面的例子说明了单个上界类型的类型参数的使用方式，然而一个类型参数可以有`Multiple Bounds`(多个上界类型)：
+上面的例子说明了单个上界类型的类型参数的使用方式，然而一个类型参数可以有`Multiple Bounds`\(多个上界类型\)：
 
 ```java
 <T extends B1 & B2 & B3>
@@ -67,7 +69,7 @@ public class NaturalNumber<T extends Integer> {
 
 一个有多个上界类型的类型变量即为所有上界类型的子类型。如果其中一个上界类型是一个累的话，他应该出现在第一位，比如：
 
-```
+```text
 Class A { /* ... */ }
 interface B { /* ... */ }
 interface C { /* ... */ }
@@ -77,6 +79,7 @@ class D <T extends A & B & C> { /* ... */ }
 
 如果类`A`没有出现在第一位，在编译过程中将会报错：
 
-```
+```text
 class D <T extends B & A & C> { /* ... */ }  // compile-time error
 ```
+

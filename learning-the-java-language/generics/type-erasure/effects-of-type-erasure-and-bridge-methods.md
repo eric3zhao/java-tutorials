@@ -1,4 +1,6 @@
-有时类型擦除可能会导致我们无法预料的情况。下面的例子将介绍是如何产生的。例子[Bridge Methods]()中展示了编译器有时会创建一个称为`Bridge method`（桥接函数)的合成方法，这是类型擦除过程的一部分。
+# Effects of Type Erasure and Bridge Methods
+
+有时类型擦除可能会导致我们无法预料的情况。下面的例子将介绍是如何产生的。例子[Bridge Methods](effects-of-type-erasure-and-bridge-methods.md)中展示了编译器有时会创建一个称为`Bridge method`（桥接函数\)的合成方法，这是类型擦除过程的一部分。
 
 下面代码中有两个类：
 
@@ -33,6 +35,7 @@ Node n = mn;            // A raw type - compiler throws an unchecked warning
 n.setData("Hello");     // Causes a ClassCastException to be thrown.
 Integer x = mn.data;
 ```
+
 > 特殊说明：在Orcale的文档中报错的注释写在了最后一行`Integer x = (String)mn.data; // Causes a ClassCastException to be thrown.`。然而根据实际测试情况`n.setData("Hello");`就已经报错，运行JDK版本为`jdk1.8.0_202`
 
 在经过类型擦除以后，上面的代码变成：
@@ -40,20 +43,20 @@ Integer x = mn.data;
 ```java
 MyNode mn = new MyNode(5);
 Node n = (MyNode)mn;         // A raw type - compiler throws an unchecked warning
-n.setData("Hello");	         // Causes a ClassCastException to be thrown.
+n.setData("Hello");             // Causes a ClassCastException to be thrown.
 Integer x = (String)mn.data;
 ```
 
 当代码运行时发现了下面这些事：
 
 * `n.setData("Hello");`因为实际执行的是`MyNode`的实例中的`setData(Object)`函数。（`MyNode`类从`Node`继承了`setData(Object)`）
-*  `setData(Object)`函数体中，`n`所引用对象中的字段data被赋值为一个`String`
-*  `mn`所引用的相关对象中的字段data，应该是能被访问的`Integer`（因为`mn`是`MyNode`，也就是`Node <Integer>`)。
-*  尝试将一个`String`赋值给一个`Integer`会导致Java编译器在分配时插入强制转换，从而导致`ClassCastException`。
+* `setData(Object)`函数体中，`n`所引用对象中的字段data被赋值为一个`String`
+* `mn`所引用的相关对象中的字段data，应该是能被访问的`Integer`（因为`mn`是`MyNode`，也就是`Node <Integer>`\)。
+* 尝试将一个`String`赋值给一个`Integer`会导致Java编译器在分配时插入强制转换，从而导致`ClassCastException`。
 
-### Bridge Methods
+## Bridge Methods
 
-当编译一个扩展参数化类或者实现参数化接口的类或者接口时，作为类型擦除过程的一部分，编译器可能需要创建一个被称为`bridge method`(桥接函数)的合成函数。
+当编译一个扩展参数化类或者实现参数化接口的类或者接口时，作为类型擦除过程的一部分，编译器可能需要创建一个被称为`bridge method`\(桥接函数\)的合成函数。
 
 通常我们不需要担心桥接函数，但是如果其中一个出现在堆栈跟踪中，可能会让人感到困惑。
 
@@ -85,7 +88,7 @@ public class MyNode extends Node {
 
 经过类型擦除，函数签名不在匹配。`Node`中的函数变为`setData(Object)`而`MyNode`中的函数变为`setData(Integer)`。也就是说函数`MyNode.setData`比没有重写函数`Node.setData`。
 
-为了解决该问题并确保类型擦除以后泛型类型的[多态]，Java编译器生成一个桥接函数来确保子类型能像预期的一样工作。以`MyNode`为例，编译器为`setData`生成如下的桥接函数：
+为了解决该问题并确保类型擦除以后泛型类型的\[多态\]，Java编译器生成一个桥接函数来确保子类型能像预期的一样工作。以`MyNode`为例，编译器为`setData`生成如下的桥接函数：
 
 ```java
 class MyNode extends Node {
@@ -105,3 +108,4 @@ class MyNode extends Node {
 ```
 
 如上所见，在类型擦除以后桥接函数和`Node`类中的`setData`函数有着相同的函数签名，最总委托给原始的`setData`函数。
+

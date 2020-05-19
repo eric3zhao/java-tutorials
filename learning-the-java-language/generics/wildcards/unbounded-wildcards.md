@@ -1,4 +1,6 @@
-无界通配类型是通配符`?`的特殊用法。比如	`List<?>`，我们称之为`list of unknown type`（未知类型的列表）。在两种情况下，无界通配符能起很大作用：
+# Unbounded Wildcards
+
+无界通配类型是通配符`?`的特殊用法。比如 `List<?>`，我们称之为`list of unknown type`（未知类型的列表）。在两种情况下，无界通配符能起很大作用：
 
 * 如果我们正在编写一个可以使用`Object`类中提供的功能来实现的函数
 * 在代码使用泛型类中不依赖于类型参数的函数。比如`List.size`或者`List.clear`，实际上`Class<?>`经常被用到，因为`Class<T>`中的大多数函数都不依赖于`T`
@@ -34,4 +36,5 @@ printList(ls);
 
 > 在本课程的示例中，会使用[Arrays.asList](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList-T...-)函数。此静态工厂方法将指定的数组转换并返回固定大小的列表。
 
-意识到`List<Object>`和`List<?>`是不一样的是很重要的。你可以往`List<Object>`中插入`Object`或者`Object`的子类型。但是你只能向`List<?>`中插入`null`。在[Guidelines for Wildcard Use]()部分中有更多关于如何确定在给定情况下应使用哪种通配符（如果有）的信息。
+意识到`List<Object>`和`List<?>`是不一样的是很重要的。你可以往`List<Object>`中插入`Object`或者`Object`的子类型。但是你只能向`List<?>`中插入`null`。在[Guidelines for Wildcard Use](unbounded-wildcards.md)部分中有更多关于如何确定在给定情况下应使用哪种通配符（如果有）的信息。
+

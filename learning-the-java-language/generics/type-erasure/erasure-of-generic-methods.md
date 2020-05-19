@@ -1,3 +1,5 @@
+# Erasure of Generic Methods
+
 Java编译器也会擦除泛型函数传参中的类型参数，以下面的泛型函数为例：
 
 ```java
@@ -43,3 +45,4 @@ Java编译器会将`T`替换为`Shape`：
 ```java
 public static void draw(Shape shape) { /* ... */ }
 ```
+

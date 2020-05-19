@@ -1,3 +1,5 @@
+# Generic Types
+
 `generic types`泛型类型指的是通过类型进行参数化的通用类或者接口。下面通过修改`Box`类来掩饰这一概念。
 
 ## A Simple Box Class

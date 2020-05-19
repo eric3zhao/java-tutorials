@@ -1,3 +1,4 @@
+# Guidelines for Wildcard Use
 
 在学习使用泛型编程时，最令人困惑的方面之一是确定何时使用上界通配符以及何时使用下界通配符。此小节提供了一些在设计代码时要遵循的准则。
 
@@ -16,6 +17,7 @@
 在决定是否使用通配符以及使用哪种类型的通配符时，可以使用“输入”和“输出”原则。
 
 **Wildcard Guidelines:**
+
 > * `in`变量使用通过`extends`关键字定义的上界通配符
 > * `out`变量使用通过`super`关键字定义的下界通配符
 > * 如果可以使用`Object`类中定义的方法访问`in`变量，请使用无界通配符。
@@ -49,7 +51,7 @@ List<? extends NaturalNumber> ln = le;
 ln.add(new NaturalNumber(35));  // compile-time error
 ```
 
-因为`List <EvenNumber>`是`List <？extends  NaturalNumber>`的子类型，我们可以将le赋值给ln。但是我们不能使用ln将自然数添加到偶数列表中。列表中的以下操作是可能的：
+因为`List <EvenNumber>`是`List <？extends NaturalNumber>`的子类型，我们可以将le赋值给ln。但是我们不能使用ln将自然数添加到偶数列表中。列表中的以下操作是可能的：
 
 * 添加`null`元素
 * 调用`clear`
@@ -57,3 +59,4 @@ ln.add(new NaturalNumber(35));  // compile-time error
 * 捕获通配并写入从列表中读取的元素
 
 我们可以看到由`List <？extended NaturalNumber>`定义的列表，从严格意义上讲不是只读的，但是我们可以认为它是只读，因为我们无法插入新元素或更改列表中的现有元素。
+

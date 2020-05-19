@@ -1,25 +1,27 @@
-在[类型擦除]()部分中已经讨论编译器删除与类型参数和类型传参有关信息的过程。类型擦除具有与可变参数（也被称为varargs）的函数有关的结果，这些函数的可变形参具有不可具体化类型。更多可变参数函数的信息请查看[Passing Information to a Method or a Constructor]()中的[Arbitrary Number of Arguments]()部分。
+# Non-Reifiable Types
+
+在[类型擦除](non-reifiable-types.md)部分中已经讨论编译器删除与类型参数和类型传参有关信息的过程。类型擦除具有与可变参数（也被称为varargs）的函数有关的结果，这些函数的可变形参具有不可具体化类型。更多可变参数函数的信息请查看[Passing Information to a Method or a Constructor](non-reifiable-types.md)中的[Arbitrary Number of Arguments](non-reifiable-types.md)部分。
 
 本小节包含以下几点：
 
-* [不可具体化类型]()
-* [堆污染]()
-* [具有不可具体化形参的可变参数函数的潜在隐患]()
-* [避免来自不可具体化形参的可变参数函数的警告]()
+* [不可具体化类型](non-reifiable-types.md)
+* [堆污染](non-reifiable-types.md)
+* [具有不可具体化形参的可变参数函数的潜在隐患](non-reifiable-types.md)
+* [避免来自不可具体化形参的可变参数函数的警告](non-reifiable-types.md)
 
-### Non-Reifiable Types
+## Non-Reifiable Types
 
-`reifiable`(可具体化)类型指的是在整个运行时可知其类型信息的类型。包括`primitives`(基础类型)，`non-generic types`(非泛型类型)，`raw types`原始类型以及`invocations of unbound wildcards`(无界通配符的调用)
+`reifiable`\(可具体化\)类型指的是在整个运行时可知其类型信息的类型。包括`primitives`\(基础类型\)，`non-generic types`\(非泛型类型\)，`raw types`原始类型以及`invocations of unbound wildcards`\(无界通配符的调用\)
 
-`Non-reifiable types`（不可具体化类型）指的是在编译过程中被类型擦除所移除信息的类型————那些没有被定义成无界通配的泛型类型的调用。一个不可具体化类型在运行时不包含所有的自身信息。举例来说不可具体化类型就是`List<String>`和`List<Number>`，JVM无法在运行时区分这两种类型有何不同。在[Restrictions on Generics]()会展示在某些特定情形下是不能使用不可具体化类型的：在一个`instanceof`表达式中或者是一个数组中的一个元素。
+`Non-reifiable types`（不可具体化类型）指的是在编译过程中被类型擦除所移除信息的类型————那些没有被定义成无界通配的泛型类型的调用。一个不可具体化类型在运行时不包含所有的自身信息。举例来说不可具体化类型就是`List<String>`和`List<Number>`，JVM无法在运行时区分这两种类型有何不同。在[Restrictions on Generics](non-reifiable-types.md)会展示在某些特定情形下是不能使用不可具体化类型的：在一个`instanceof`表达式中或者是一个数组中的一个元素。
 
-### Heap Pollution
+## Heap Pollution
 
-当一个参数化类型变量引用了一个非参数化类型的对象时，`Heap Pollution`(堆污染)就会发生。如果程序执行了某些在编译时引起未经检查警告的操作，则会发生这种情况。`unchecked warning`(未检查警告)可能在编译时（取决于编译时类型检查规则的限制）生成也可能在设置运行时生产，这样将会导致无法验证涉及参数化类型（例如，强制类型转换或函数调用）的操作的正确性。举例来说，当原始类型和参数化类型混合使用，或者使用未经检测的类型转化时，堆污染就会发生。
+当一个参数化类型变量引用了一个非参数化类型的对象时，`Heap Pollution`\(堆污染\)就会发生。如果程序执行了某些在编译时引起未经检查警告的操作，则会发生这种情况。`unchecked warning`\(未检查警告\)可能在编译时（取决于编译时类型检查规则的限制）生成也可能在设置运行时生产，这样将会导致无法验证涉及参数化类型（例如，强制类型转换或函数调用）的操作的正确性。举例来说，当原始类型和参数化类型混合使用，或者使用未经检测的类型转化时，堆污染就会发生。
 
 在正常情况下，当所有的代码都是同时编译的，编译器会发出未经检查的警告来提醒你关注潜在的堆污染。如果我们分开编译我们的部分代码，那就很难检测出潜在的堆污染。如果我们保证代码编译没有警告，那么就不会有堆污染。
 
-### Potential Vulnerabilities of Varargs Methods with Non-Reifiable Formal Parameters
+## Potential Vulnerabilities of Varargs Methods with Non-Reifiable Formal Parameters
 
 包含可变输入参数的泛型函数可能引起堆污染
 
@@ -67,7 +69,7 @@ public class HeapPollutionExample {
 
 但编译时，`ArrayBuilder.addToList`函数的定义会产生如下警告：
 
-```
+```text
 warning: [varargs] Possible heap pollution from parameterized vararg type T
 ```
 
@@ -97,18 +99,15 @@ ArrayBuilder.faultyMethod(Arrays.asList("Hello!"), Arrays.asList("World!"));
 
 在运行时，JVM会在下面这条语句抛出`ClassCastException`
 
-···java
-// ClassCastException thrown here
-String s = l[0].get(0);
-···
+···java // ClassCastException thrown here String s = l\[0\].get\(0\); ···
 
 变量`l`数组中的第一个对象是`List<Integer>`类型，但是这条语句需要的是`List<String>`类型的对象。
 
-### Prevent Warnings from Varargs Methods with Non-Reifiable Formal Parameters
+## Prevent Warnings from Varargs Methods with Non-Reifiable Formal Parameters
 
 如果我们声明了一个包含参数化类型参数的可变形参函数，同时我们能确保函数体内不会抛出`ClassCastException`或者其他相类似的因为处理可变形参引起的错误，我们就可以为这些可变形参函数添加注解来屏蔽编译器生成的警告，该注解可以添加在静态或者非构造函数的声明中：
 
-```
+```text
 @SafeVarargs
 ```
 
@@ -116,8 +115,9 @@ String s = l[0].get(0);
 
 同时我们也可以（虽然不鼓励这样做）通过加入下面内容到函数声明中来阻止这些警告的产生：
 
-```
+```text
 @SuppressWarnings({"unchecked", "varargs"})
 ```
 
-然而，这种方式不会阻止函数调用的地方产生警告。如果不对`@SuppressWarnings`不熟悉，请查看[Annotations]()
+然而，这种方式不会阻止函数调用的地方产生警告。如果不对`@SuppressWarnings`不熟悉，请查看[Annotations](non-reifiable-types.md)
+

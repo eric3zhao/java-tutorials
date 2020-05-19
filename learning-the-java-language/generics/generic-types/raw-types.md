@@ -1,3 +1,5 @@
+# Raw Types
+
 `raw type`（原生类型）是不带任何类型传参的泛型类或者接口。例如，下面这个`Box`泛型类：
 
 ```java
@@ -47,11 +49,11 @@ rawBox.set(8);  // warning: unchecked invocation to set(T)
 
 在后面的`Type Erasure`部分将会介绍更多的Java编译器如何使用原生类型的信息。
 
-### Unchecked Error Messages
+## Unchecked Error Messages
 
 就像上面提到的，当遗留代码和泛型代码混合在一起时，我们可能遇到如下的告警信息：
 
-```
+```text
 Note: Example.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 ```
@@ -75,7 +77,7 @@ public class WarningDemo {
 
 使用`-Xlint:unchecked`参数重新编译上面的例子会得到如下信息：
 
-```
+```text
 WarningDemo.java:4: warning: [unchecked] unchecked conversion
 found   : Box
 required: Box<java.lang.Integer>
@@ -85,3 +87,4 @@ required: Box<java.lang.Integer>
 ```
 
 想要完全警用未检查警告，可以使用参数`-Xlint:-unchecked`。注解`@SuppressWarnings("unchecked")`阻止所有的未检查警告。如果对`@SuppressWarnings`语法不熟悉，参考`Annotations`章节的相关内容。
+

@@ -1,4 +1,6 @@
-我们能使用上边界通配符来放松一个变量的限制。比如说，你想要写一个函数对于`List<Integer>, List<Double>,List<Number>`	功能使用，你可以使用上边界通配符打到目的。
+# Upper Bounded Wildcards
+
+我们能使用上边界通配符来放松一个变量的限制。比如说，你想要写一个函数对于`List<Integer>, List<Double>,List<Number>` 功能使用，你可以使用上边界通配符打到目的。
 
 定义一个上边界通配符时使用通配字符`?`，后面紧跟`extends`关键字，最后是它的`upper bound`（上边界）。请注意，在这语境中，`extends`被用在一个普通场景表示对类的`extends`（扩展）或者对接口的`implements`（实现）。
 
@@ -46,3 +48,4 @@ System.out.println("sum = " + sumOfList(li));
 List<Double> ld = Arrays.asList(1.2, 2.3, 3.5);
 System.out.println("sum = " + sumOfList(ld));
 ```
+

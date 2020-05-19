@@ -1,4 +1,6 @@
-在[Upper Bounded Wildcards]()部分中已经展示上界通配符如何通过`extends`关键字将未知类型限制成特定类型或该类型的子类型。同样的，`lower bounded`(下界)通配将未知类型限制成特定类型或该类型的`super type`（超类型）
+# Lower Bounded Wildcards
+
+在[Upper Bounded Wildcards](lower-bounded-wildcards.md)部分中已经展示上界通配符如何通过`extends`关键字将未知类型限制成特定类型或该类型的子类型。同样的，`lower bounded`\(下界\)通配将未知类型限制成特定类型或该类型的`super type`（超类型）
 
 一个下界通配表示如下：先写一个通配符`?`，后面紧跟`super`关键字，最后是它的下界：`<? super A>`
 
@@ -18,4 +20,5 @@ public static void addNumbers(List<? super Integer> list) {
 }
 ```
 
-[Guidelines for Wildcard Use]()部分介绍了何时使用上界通配或者下界通配。
+[Guidelines for Wildcard Use](lower-bounded-wildcards.md)部分介绍了何时使用上界通配或者下界通配。
+
