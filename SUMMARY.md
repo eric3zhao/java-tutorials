@@ -18,6 +18,7 @@
   * [What Is a Class?](learning-the-java-language/oop-concepts/what-is-a-class.md)
   * [What Is Inheritance?](learning-the-java-language/oop-concepts/what-is-inheritance.md)
   * [What Is an Interface?](learning-the-java-language/oop-concepts/what-is-an-interface.md)
+  * [What Is a package?](learning-the-java-language/oop-concepts/what-is-a-package.md)
 * [Language Basics](learning-the-java-language/language-basics/README.md)
   * [Java Language Keywords](learning-the-java-language/language-basics/java-language-keywords.md)
 * [Annotations](learning-the-java-language/annotations/README.md)
